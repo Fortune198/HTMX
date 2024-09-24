@@ -7,7 +7,7 @@
     "dev": "node --watch app.js"
   },
   "keywords": [],
-  "author": "James Hibbard",
+  "author": "Fortune Matshika",
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.20.2",

@@ -1,0 +1,22 @@
+- isEditing = () => !(Object.keys(book).length === 0);
+
+h2=isEditing() ? "Edit Book" : "New Book"
+
+form(
+  action=isEditing() ? `/update/${book.id}?_method=PUT` : '/books',
+  method='POST',
+
+  hx-post=isEditing() ? false : '/books',
+  hx-put=isEditing() ? `/update/${book.id}` : false,
+  hx-target='#sidebar',
+  hx-push-url=isEditing() ? `/books/${book.id}` : false
+  hx-on::after-request='if(event.detail.successful) this.reset()',
+)
+  label(for='title') Title:
+  input#title(type='text', name='title', required, value=book .title)
+
+  label(for='description') Description:
+  input#description(type='text', name='description', required, value=book.description)
+
+  div.actions
+    button(type='submit') Submit

@@ -1,8 +1,9 @@
+//import express, initialise it in app variable
 import express from 'express';
 
 const app = express();
 
-// Set static folder
+// Set static folder to serve HTML files from it
 app.use(express.static('public'));
 
 // Parse URL-encoded bodies (as sent by HTML forms)
